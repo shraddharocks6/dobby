@@ -1,1 +1,6 @@
-
+{
+  "manifest_version": 2,
+  "name": "dobby",
+  "version": "1.0",
+  "description": "It is a chrome extension which will provide additional information about the words in a webpage."
+}
