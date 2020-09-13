@@ -1,6 +1,18 @@
 {
   "manifest_version": 2,
-  "name": "dobby",
-  "version": "1.0",
-  "description": "It is a chrome extension which will provide additional information about the words in a webpage."
+  "name": "Bubble",
+  "version": "0.01",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "contentscript.js"
+      ],
+      "css": [
+        "contentscript.css"
+      ]
+    }
+  ]
 }
