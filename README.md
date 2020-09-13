@@ -1,6 +1,6 @@
 #DOBBY
 <br />
-Dobby is a chrome Web Extension.
+Dobby is a Chrome Web Extension.
 <br />
 It helps user to find information related to any word on the page.
 <br />
