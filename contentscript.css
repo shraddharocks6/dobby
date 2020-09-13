@@ -1,13 +1,12 @@
 .selection_bubble {
   visibility: hidden;
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   margin: 1em 0 3em;
   color: #000;
-  background: rgb(115, 142, 223);
+  background: #bfa3ec;
   border-radius: 10px;
-  background: linear-gradient(top, #f9d835, #f3961c);
-  min-width: 480px;
+  min-width: 450px;
   min-height: 400px;
 }

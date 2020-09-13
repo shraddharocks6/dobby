@@ -20,29 +20,25 @@ document.addEventListener(
 );
 
 // Close the bubble when we click on the screen.
-document.addEventListener(
-  "mousedown",
-  function (e) {
-    console.log("Up");
-    bubbleDOM.style.visibility = "hidden";
-  },
-  false
-);
+// document.addEventListener(
+//   "mousedown",
+//   function (e) {
+//     console.log("Up");
+//     bubbleDOM.style.visibility = "hidden";
+//   },
+//   false
+// );
 
 // Move that bubble to the appropriate location.
 function renderBubble(mouseX, mouseY, selection) {
   console.log("Selection : " + selection);
-  let html = `Hello`;
-  bubbleDOM.innerHTML = html;
+  htmlData = `
+  <h1>Hello ${selection}</h1> <br />
+  <button class="btn btn-primary">Wikipedia</button><br />
+  <iframe src="https://en.m.wikipedia.org/wiki/${selection}" title="Wikipedia" height="400" width="600"></iframe>
+  `;
+  bubbleDOM.innerHTML = htmlData;
   bubbleDOM.style.top = mouseY + "px";
   bubbleDOM.style.left = mouseX + "px";
   bubbleDOM.style.visibility = "visible";
-}
-{
-  /* <iframe
-  src="https://en.m.wikipedia.org/wiki/${selection}" 
-  title="W3Schools Free Online Web Tutorials" 
-  height="600" 
-  width="100%"
-    ></iframe> */
 }
