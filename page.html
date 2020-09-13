@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="btn btn-primary" id="wikiBtn">Wikipedia</button>
+    <button class="btn btn-primary" id="translateBtn">Translate</button>
+    <br />
+    <div id="frameContainer">
+      <iframe
+        src="https://en.m.wikipedia.org/wiki/Mohanjodaro"
+        title="Wikipedia"
+        height="400"
+        width="600"
+      ></iframe>
+    </div>
+
+    <script>
+      const wikiBtn = document.getElementById("wikiBtn");
+      const translateBtn = document.getElementById("translateBtn");
+
+      const frameContainer = document.getElementById("frameContainer");
+      translateBtn.onclick = () => {
+        frameContainer.innerHTML = `
+          <iframe
+            src="https://m.bing.com/translator/?to=hi&text=Banana%20Hammock"
+            title="Wikipedia"
+            height="400"
+            width="600"
+            ></iframe>
+          `;
+      };
+    </script>
+  </body>
+</html>

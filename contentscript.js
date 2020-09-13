@@ -13,7 +13,7 @@ document.addEventListener(
     console.log("Down");
     var selection = window.getSelection().toString();
     if (selection.length > 0) {
-      renderBubble(e.clientX, e.clientY, selection);
+      renderWikiBubble(e.clientX, e.clientY, selection);
     }
   },
   false
@@ -30,14 +30,26 @@ document.addEventListener(
 );
 
 // Move that bubble to the appropriate location.
-function renderBubble(mouseX, mouseY, selection) {
+function renderWikiBubble(mouseX, mouseY, selection) {
   console.log("Selection : " + selection);
-  htmlData = `
-  <button class="btn btn-primary">Wikipedia</button><br />
-  <iframe src="https://en.m.wikipedia.org/wiki/${selection}" title="Wikipedia" height="400" width="600"></iframe>
+
+  wikiData = `
+  <iframe
+    src="https://en.m.wikipedia.org/wiki/${selection}"
+    title="Wikipedia"
+    height="400"
+    width="600"
+  ></iframe>
   `;
-  bubbleDOM.innerHTML = htmlData;
-  bubbleDOM.style.top = mouseY + "px";
+  bubbleDOM.innerHTML = wikiData;
+  bubbleDOM.style.top = mouseY + window.scrollY + "px";
   bubbleDOM.style.left = mouseX + "px";
   bubbleDOM.style.visibility = "visible";
+
+  const wikiBtn = document.getElementById("wikiBtn");
+  const translateBtn = document.getElementById("translateBtn");
+
+  translateBtn.onclick = (e) => {
+    renderTranslateBubble(e.clientX, e.clientY, selection);
+  };
 }
