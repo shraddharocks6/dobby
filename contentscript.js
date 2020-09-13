@@ -41,6 +41,6 @@ function renderWikiBubble(mouseX, mouseY, selection) {
   `;
   bubbleDOM.innerHTML = wikiData;
   bubbleDOM.style.top = mouseY + window.scrollY - 50 + "px";
-  bubbleDOM.style.left = mouseX + "px";
+  bubbleDOM.style.left = mouseX + 10 + "px";
   bubbleDOM.style.visibility = "visible";
 }
