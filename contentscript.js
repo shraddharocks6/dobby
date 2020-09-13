@@ -42,7 +42,7 @@ function renderWikiBubble(mouseX, mouseY, selection) {
   ></iframe>
   `;
   bubbleDOM.innerHTML = wikiData;
-  bubbleDOM.style.top = mouseY + window.scrollY + 50 + "px";
+  bubbleDOM.style.top = mouseY + window.scrollY - 50 + "px";
   bubbleDOM.style.left = mouseX + "px";
   bubbleDOM.style.visibility = "visible";
 }
