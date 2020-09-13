@@ -19,15 +19,15 @@ document.addEventListener(
   false
 );
 
-// Close the bubble when we click on the screen.
-// document.addEventListener(
-//   "mousedown",
-//   function (e) {
-//     console.log("Up");
-//     bubbleDOM.style.visibility = "hidden";
-//   },
-//   false
-// );
+//Close the bubble when we click on the screen.
+document.addEventListener(
+  "mousedown",
+  function (e) {
+    console.log("Up");
+    bubbleDOM.style.visibility = "hidden";
+  },
+  false
+);
 
 // Move that bubble to the appropriate location.
 function renderBubble(mouseX, mouseY, selection) {
