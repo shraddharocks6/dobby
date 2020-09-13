@@ -33,7 +33,6 @@ document.addEventListener(
 function renderBubble(mouseX, mouseY, selection) {
   console.log("Selection : " + selection);
   htmlData = `
-  <h1>Hello ${selection}</h1> <br />
   <button class="btn btn-primary">Wikipedia</button><br />
   <iframe src="https://en.m.wikipedia.org/wiki/${selection}" title="Wikipedia" height="400" width="600"></iframe>
   `;
