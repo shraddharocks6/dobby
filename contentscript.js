@@ -31,8 +31,6 @@ document.addEventListener(
 
 // Move that bubble to the appropriate location.
 function renderWikiBubble(mouseX, mouseY, selection) {
-  console.log("Selection : " + selection);
-
   wikiData = `
   <iframe
     src="https://en.m.wikipedia.org/wiki/${selection}"
