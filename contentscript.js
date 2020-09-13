@@ -42,14 +42,7 @@ function renderWikiBubble(mouseX, mouseY, selection) {
   ></iframe>
   `;
   bubbleDOM.innerHTML = wikiData;
-  bubbleDOM.style.top = mouseY + window.scrollY + "px";
+  bubbleDOM.style.top = mouseY + window.scrollY + 50 + "px";
   bubbleDOM.style.left = mouseX + "px";
   bubbleDOM.style.visibility = "visible";
-
-  const wikiBtn = document.getElementById("wikiBtn");
-  const translateBtn = document.getElementById("translateBtn");
-
-  translateBtn.onclick = (e) => {
-    renderTranslateBubble(e.clientX, e.clientY, selection);
-  };
 }
