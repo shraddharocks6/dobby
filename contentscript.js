@@ -32,12 +32,14 @@ document.addEventListener(
 // Move that bubble to the appropriate location.
 function renderWikiBubble(mouseX, mouseY, selection) {
   wikiData = `
+  <button class="btn btn-primary" id="wikiBtn">Wikipedia</button>
+  
   <iframe
     src="https://en.m.wikipedia.org/wiki/${selection}"
     title="Wikipedia"
-    height="400"
+    height="200"
     width="600"
-  ></iframe>
+  >Translate</button></iframe>
   `;
   bubbleDOM.innerHTML = wikiData;
   bubbleDOM.style.top = mouseY + window.scrollY - 50 + "px";
