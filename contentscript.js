@@ -1,5 +1,7 @@
 console.log("Great!!");
-
+var w = window.innerWidth;
+var h = window.innerHeight;
+console.log("w " + w + "  h " + h);
 // Add bubble to the top of the page.
 var bubbleDOM = document.createElement("div");
 bubbleDOM.setAttribute("class", "selection_bubble");
@@ -14,13 +16,19 @@ document.addEventListener("mouseup", function (e) {
   if (!e.target.matches(noRedirect)) {
     console.log("Up");
     if (selection.length > 0) {
-      renderWikiBubble(e.clientX, e.clientY, selection);
+      var xposition, yposition;
+      if (!(e.clientX + 595 <= w)) xposition = w - 610;
+      else xposition = e.clientX;
+      if (!(e.clientY + 400 <= h)) yposition = h - 400;
+      else yposition = e.clientY;
+      console.log(xposition + " x and y " + yposition);
+      renderWikiBubble(xposition, yposition, selection);
     }
   } else {
     console.log("No Re");
     var wikiBtn = document.getElementById("wikiBtn");
     var translateBtn = document.getElementById("translateBtn");
-    var wikidictonaryBtn = document.getElementById("dictonaryBtn");
+    var wikidictonaryBtn = document.getElementById("wikidictonaryBtn");
     var dictonaryBtn = document.getElementById("dictonaryBtn");
     var newsBtn = document.getElementById("newsBtn");
 
@@ -65,15 +73,15 @@ function renderWikiBubble(mouseX, mouseY, selection) {
       <button class="btn btn-primary noRedirect" id="wikiBtn" >Wikipedia</button>
       <button class="btn btn-primary noRedirect" id="wikidictonaryBtn" >Wiktionary</button>
       <button class="btn btn-primary noRedirect" id="dictonaryBtn" >dictionary.com</button>
-      <button class="btn btn-primary noRedirect" id="newsBtn" >News(WikiNews)</button>
-      <button class="btn btn-primary noRedirect" id="translateBtn">Translate</button> 
+      <button class="btn btn-primary noRedirect" id="newsBtn" >News - WikiNews</button>
+      <button class="btn btn-primary noRedirect" id="translateBtn">Translate - Bing</button> 
       <br />
 
       <iframe
         src="https://en.m.wikipedia.org/wiki/${selection}"
         title="Wikipedia"
         height="400"
-        width="600"
+        width="595"
         id="mainFrame"
         class="noRedirect"
       >
