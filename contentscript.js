@@ -86,18 +86,6 @@ function renderWikiBubble(mouseX, mouseY, selection) {
         class="noRedirect"
       >
     </iframe>
-      <script>
-          dobbySetup();
-          var translateBtn = document.getElementById("translateBtn");
-          var frame = document.getElementById("mainFrame");
-          console.log("cool");
-          translateBtn.onclick = () => {
-            frame.setAttribute(
-              "src",
-              "https://en.m.wikipedia.org/wiki/apple"
-            );
-          };
-      </script> 
     </div>
   `;
   bubbleDOM.innerHTML = wikiData;
@@ -105,9 +93,3 @@ function renderWikiBubble(mouseX, mouseY, selection) {
   bubbleDOM.style.left = mouseX + 10 + "px";
   bubbleDOM.style.visibility = "visible";
 }
-
-function dobbySetup() {
-  dobbyDiv = document.getElementById("dobby");
-}
-
-function translate() {}
