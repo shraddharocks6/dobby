@@ -7,42 +7,99 @@ document.body.appendChild(bubbleDOM);
 var data;
 
 // Lets listen to mouseup DOM events.
-document.addEventListener(
-  "mouseup",
-  function (e) {
-    console.log("Down");
-    var selection = window.getSelection().toString();
+document.addEventListener("mouseup", function (e) {
+  console.log("Target " + e.target);
+  var noRedirect = ".noRedirect";
+  var selection = window.getSelection().toString();
+  if (!e.target.matches(noRedirect)) {
+    console.log("Up");
     if (selection.length > 0) {
       renderWikiBubble(e.clientX, e.clientY, selection);
     }
-  },
-  false
-);
+  } else {
+    console.log("No Re");
+    var wikiBtn = document.getElementById("wikiBtn");
+    var translateBtn = document.getElementById("translateBtn");
+    var wikidictonaryBtn = document.getElementById("dictonaryBtn");
+    var dictonaryBtn = document.getElementById("dictonaryBtn");
+    var newsBtn = document.getElementById("newsBtn");
+
+    var frame = document.getElementById("mainFrame");
+    console.log("cool");
+    wikiBtn.onclick = () => {
+      frame.setAttribute("src", `https://en.m.wikipedia.org/wiki/${selection}`);
+    };
+    translateBtn.onclick = () => {
+      frame.setAttribute("src", "https://www.bing.com/translator");
+    };
+    wikidictonaryBtn.onclick = () => {
+      frame.setAttribute(
+        "src",
+        `https://en.m.wiktionary.org/wiki/${selection.toLowerCase()}`
+      );
+    };
+    dictonaryBtn.onclick = () => {
+      frame.setAttribute(
+        "src",
+        `https://www.dictionary.com/browse/${selection.toLowerCase()}`
+      );
+    };
+    newsBtn.onclick = () => {
+      frame.setAttribute("src", `https://en.m.wikinews.org/wiki/${selection}`);
+    };
+  }
+});
 
 //Close the bubble when we click on the screen.
-document.addEventListener(
-  "mousedown",
-  function (e) {
-    console.log("Up");
+document.addEventListener("mousedown", function (e) {
+  if (!e.target.matches(".noRedirect")) {
+    console.log("Down");
     bubbleDOM.style.visibility = "hidden";
-  },
-  false
-);
+  }
+});
 
 // Move that bubble to the appropriate location.
 function renderWikiBubble(mouseX, mouseY, selection) {
   wikiData = `
-  <button class="btn btn-primary" id="wikiBtn">Wikipedia</button>
-  
-  <iframe
-    src="https://en.m.wikipedia.org/wiki/${selection}"
-    title="Wikipedia"
-    height="200"
-    width="600"
-  >Translate</button></iframe>
+  <div id = "dobby" class="noRedirect">
+      <button class="btn btn-primary noRedirect" id="wikiBtn" >Wikipedia</button>
+      <button class="btn btn-primary noRedirect" id="wikidictonaryBtn" >Wiktionary</button>
+      <button class="btn btn-primary noRedirect" id="dictonaryBtn" >dictionary.com</button>
+      <button class="btn btn-primary noRedirect" id="newsBtn" >News(WikiNews)</button>
+      <button class="btn btn-primary noRedirect" id="translateBtn">Translate</button> 
+      <br />
+
+      <iframe
+        src="https://en.m.wikipedia.org/wiki/${selection}"
+        title="Wikipedia"
+        height="400"
+        width="600"
+        id="mainFrame"
+        class="noRedirect"
+      >
+    </iframe>
+      <script>
+          dobbySetup();
+          var translateBtn = document.getElementById("translateBtn");
+          var frame = document.getElementById("mainFrame");
+          console.log("cool");
+          translateBtn.onclick = () => {
+            frame.setAttribute(
+              "src",
+              "https://en.m.wikipedia.org/wiki/apple"
+            );
+          };
+      </script> 
+    </div>
   `;
   bubbleDOM.innerHTML = wikiData;
   bubbleDOM.style.top = mouseY + window.scrollY - 50 + "px";
   bubbleDOM.style.left = mouseX + 10 + "px";
   bubbleDOM.style.visibility = "visible";
 }
+
+function dobbySetup() {
+  dobbyDiv = document.getElementById("dobby");
+}
+
+function translate() {}
